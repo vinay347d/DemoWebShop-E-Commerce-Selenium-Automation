@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="DemoWebShop Suite" parallel="false">
+
+    <listeners>
+        <listener class-name="Utils.TestListener"/>
+    </listeners>
+
+    <test name="Regression Tests">
+        <classes>
+            <class name="Tests.MainTest"/>
+        </classes>
+    </test>
+
+</suite>
