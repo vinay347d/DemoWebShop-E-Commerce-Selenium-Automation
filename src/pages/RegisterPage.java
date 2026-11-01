@@ -77,4 +77,8 @@ public class RegisterPage extends BasePage {
     public String getSummaryError() {
         return getText(summaryError);
     }
+
+    public boolean isContinueButtonDisplayed() {
+        return driver.findElements(continueButton).size() > 0;
+    }
 }
