@@ -32,7 +32,7 @@ public class MainTest {
         }
     }
 
-    int emailNumber = 500;   // starting number
+    int emailNumber = 5000;   // starting number
 
     String newEmail() {
         emailNumber--;
@@ -41,10 +41,22 @@ public class MainTest {
 
     String registerNewUser() {
         String email = newEmail();
+
         new HomePage(driver).clickRegister();
+
         RegisterPage register = new RegisterPage(driver);
-        register.register("Male", "Vinay", "Dudyala", email, PASSWORD, PASSWORD);
+
+        register.register("Male", "Vinay", "Dudyala",
+                email, PASSWORD, PASSWORD);
+
+        if (!register.isContinueButtonDisplayed()) {
+            throw new RuntimeException(
+                    "Registration failed. Continue button not found for email: " + email
+            );
+        }
+
         register.clickContinue();
+
         return email;
     }
 
